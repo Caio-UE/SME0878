@@ -1,0 +1,28 @@
+# Dependencias do projeto de Mineracao Estatistica e Modelagem Preditiva (SME0829).
+# Instale com: pip install -r requirements.txt
+# Recomenda-se um ambiente virtual com Python 3.12 ou superior.
+
+# Analise de dados e graficos, usados nos dois notebooks.
+pandas>=2.0
+numpy>=1.24
+scipy>=1.11
+matplotlib>=3.7
+seaborn>=0.13
+
+# Modelagem preditiva e explicabilidade (modelagem_preditiva.ipynb).
+scikit-learn>=1.4
+xgboost>=2.0
+shap>=0.44
+
+# Banco analitico e cliente HTTP usados na coleta e na leitura dos dados.
+duckdb>=1.1
+curl_cffi>=0.7
+
+# Coleta no Transfermarkt (projeto Scrapy em scrapers/transfermarkt).
+scrapy>=2.11
+python-dateutil>=2.8
+
+# Execucao dos notebooks.
+notebook>=7.0
+nbformat>=5.9
+nbclient>=0.9
