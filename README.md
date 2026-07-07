@@ -119,7 +119,7 @@ acessos simultaneos e respeito ao arquivo robots.txt no Transfermarkt. Os endpoi
 sao oficiais e podem mudar sem aviso. Todos os dados foram usados apenas para fins academicos, no
 contexto da disciplina.
 
-## Equipe
+## Grupo
 
 Amanda Bezerra da Costa, Caio Uramoto Evangelista, Gustavo Negrao Ribeiro Souza, Murillo Domingos de
 Almeida, Vinicio Yusuke Hayashibara e Matheus Rodrigues dos Santos.
