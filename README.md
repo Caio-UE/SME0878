@@ -23,21 +23,18 @@ selecao das fontes, coleta, limpeza, transformacao, mineracao e avaliacao.
 
 ## Estrutura do repositorio
 
-    TFINAL/
+    .
       README.md                          este arquivo
-      scrapers/                          codigo de coleta organizado e comentado
+      requirements.txt                   dependencias do projeto
+      scrapers/                          codigo de coleta, organizado e comentado
         sofascore/                       estatisticas de desempenho
         transfermarkt/                   valor de mercado, lesoes, transferencias, perfil
-      scrap-sofascore/                   projeto original do scraper do SofaScore
-      transfermarkt-scraper-main/        projeto original do scraper do Transfermarkt
       dataset_bundesliga_5seasons.csv    dataset final integrado, uma linha por jogador e temporada
       analysis.ipynb                     analise exploratoria dos dados
       modelagem_preditiva.ipynb          modelagem preditiva do valor de mercado
-      data/output/                       arquivos auxiliares gerados na analise
-      SlideseRelatorios/                 relatorios e slides da disciplina
 
-A pasta scrapers e uma copia limpa e comentada dos dois scrapers, pensada para leitura e para compor
-a entrega de codigo. As pastas originais foram mantidas intactas.
+A pasta scrapers reune o codigo de coleta das duas fontes, organizado e comentado. Cada subpasta tem
+seu proprio README com instrucoes de uso.
 
 ## Fluxo de dados
 
@@ -69,8 +66,10 @@ conjunto de estatisticas de desempenho, alem de posicao e idade. Sao cerca de mi
 e mais de mil jogadores distintos.
 
 O notebook de analise exploratoria usa uma base menor, com as temporadas 24/25 e 25/26, lida
-diretamente do banco DuckDB do SofaScore. Essa escolha mantem a analise alinhada com a versao
-apresentada no relatorio parcial.
+diretamente do banco DuckDB do SofaScore gerado na coleta. Essa escolha mantem a analise alinhada com
+a versao apresentada no relatorio parcial. Esse banco intermediario nao acompanha o repositorio, entao
+o notebook de analise fica disponivel para leitura com os resultados ja gravados nas celulas. O
+notebook de modelagem, por outro lado, le o dataset final direto do CSV e roda de ponta a ponta.
 
 ## Como reproduzir
 
@@ -82,14 +81,13 @@ Todas as dependencias estao no arquivo requirements.txt na raiz do projeto.
     source .venv/bin/activate      # no Windows: .venv\Scripts\activate
     pip install -r requirements.txt
 
-Analise exploratoria e modelagem:
+Modelagem preditiva, reproduzivel a partir do CSV incluido no repositorio:
 
-    jupyter notebook analysis.ipynb
     jupyter notebook modelagem_preditiva.ipynb
 
-O notebook de modelagem le o dataset final direto do CSV e roda de ponta a ponta. O notebook de
-analise le o banco do SofaScore em scrap-sofascore/db/sofascrap.duckdb e usa um cache de idades em
-data/output/player_ages.csv.
+O notebook de analise exploratoria, analysis.ipynb, foi gerado a partir do banco DuckDB do SofaScore,
+que nao acompanha o repositorio. Ele pode ser lido com os resultados ja gravados nas celulas. Para
+executa-lo do zero, e preciso regenerar esse banco com o scraper do SofaScore.
 
 Para a coleta de dados, cada scraper tem instrucoes proprias na pasta scrapers, incluindo como rodar
 o scraper de liga do SofaScore e o pipeline completo do Transfermarkt. Consulte scrapers/README.md.
